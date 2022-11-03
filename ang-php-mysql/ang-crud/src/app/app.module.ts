@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,6 @@ import { ProductsComponent } from './products/products.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [ProductsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
