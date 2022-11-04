@@ -4,7 +4,7 @@ import { ApiService } from '../api.service';
 import { Product } from '../product';
 
 @Component({
-  selector: 'router-outlet',
+  selector: 'app-product',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
