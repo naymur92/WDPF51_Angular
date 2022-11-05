@@ -10,11 +10,11 @@ import { Product } from '../product';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  selectedProduct: Product = { id: null, name: null, price: null }
+  selectedProduct: Product = { id: null, name: null, price: null };
   constructor(private apiService: ApiService) {
     this.apiService.readProducts().subscribe((products: Product[]) => {
       this.products = products;
-      console.log(this.products);
+      console.log(this.products);   // for testing purpose
     })
   }
   ngOnInit() {
