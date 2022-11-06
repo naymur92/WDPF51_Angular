@@ -13,16 +13,13 @@ export class UsersService {
 		return this.httpClient.get<User[]>(`${this.USER_API_SERVER}/index.php`);
 	}
 
-  createUser(user: User):Observable<User> {
-    return this.httpClient.post<User>(`${this.USER_API_SERVER}/create_user.php`, user);
-  }
-	// createUser(user: User): Observable<User>{
-	// 	return this.httpClient.post<User>(`${this.USER_API_SERVER}/create_user.php`, user);
-	// }
-	// updateUser(user: User){
-	// 	return this.httpClient.put<User>(`${this.USER_API_SERVER}/update_user.php`, user);
-	// }
-	// deleteUser(id: number){
-	// 	return this.httpClient.delete<User>(`${this.USER_API_SERVER}/delete_user.php/?id=${id}`);
-	// }
+	createUser(user: User): Observable<User>{
+		return this.httpClient.post<User>(`${this.USER_API_SERVER}/create_user.php`, user);
+	}
+	updateUser(user: User){
+		return this.httpClient.put<User>(`${this.USER_API_SERVER}/update_user.php`, user);
+	}
+	deleteUser(id: number){
+		return this.httpClient.delete<User>(`${this.USER_API_SERVER}/delete_user.php/?id=${id}`);
+	}
 }

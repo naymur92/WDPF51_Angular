@@ -6,7 +6,7 @@ import { Product } from '../product';
 @Component({
   selector: 'app-product',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
@@ -14,30 +14,32 @@ export class ProductsComponent implements OnInit {
   constructor(private apiService: ApiService) {
     this.apiService.readProducts().subscribe((products: Product[]) => {
       this.products = products;
-      console.log(this.products);   // for testing purpose
-    })
+      console.log(this.products); // for testing purpose
+    });
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
   createOrUpdateProduct(form: any) {
     form.value.id = this.selectedProduct.id;
     form.value.name = this.selectedProduct.name;
     form.value.price = this.selectedProduct.price;
     if (this.selectedProduct && this.selectedProduct.id) {
-      this.apiService.updateProduct(form.value).subscribe((product: Product) => {
-        console.log("Product updated", product);
-        this.apiService.readProducts().subscribe((products: Product[]) => {
-          this.products = products;
-        })
-      });
-    }
-    else {
-      this.apiService.createProduct(form.value).subscribe((product: Product) => {
-        console.log("Product created, ", product);
-        this.apiService.readProducts().subscribe((products: Product[]) => {
-          this.products = products;
-        })
-      });
+      this.apiService
+        .updateProduct(form.value)
+        .subscribe((product: Product) => {
+          console.log('Product updated', product);
+          this.apiService.readProducts().subscribe((products: Product[]) => {
+            this.products = products;
+          });
+        });
+    } else {
+      this.apiService
+        .createProduct(form.value)
+        .subscribe((product: Product) => {
+          console.log('Product created, ', product);
+          this.apiService.readProducts().subscribe((products: Product[]) => {
+            this.products = products;
+          });
+        });
     }
   }
 
@@ -47,10 +49,10 @@ export class ProductsComponent implements OnInit {
 
   deleteProduct(id: any) {
     this.apiService.deleteProduct(id).subscribe((product: Product) => {
-      console.log("Product deleted, ", product);
+      console.log('Product deleted, ', product);
       this.apiService.readProducts().subscribe((products: Product[]) => {
         this.products = products;
-      })
+      });
     });
   }
 }

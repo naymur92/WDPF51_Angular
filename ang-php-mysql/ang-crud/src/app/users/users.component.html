@@ -1,20 +1,26 @@
 <h1>Users List</h1>
-<table class="table table-striped table-bordered">
+<table class="table table-striped">
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Operations</th>
   </tr>
   <tr *ngFor="let user of users">
     <td>{{ user.id }}</td>
     <td>{{ user.name }}</td>
     <td>{{ user.email }}</td>
+    <td>
+      <button type="button" class="btn btn-outline-primary" (click)="selectUser(user)">Edit</button>
+      <button type="button" class="btn btn-outline-danger" (click)="deleteUser(user.id)">Delete</button>
+    </td>
   </tr>
 </table>
 <h1>User Entry</h1>
-<form #u="ngForm">
-  <input type="text" name="name" placeholder="Enter Name" [(ngModel)]="selectedUser.name"><br>
-  <input type="text" name="email" placeholder="Enter Email" [(ngModel)]="selectedUser.email"><br>
-  <input type="password" name="password" placeholder="Enter Password" [(ngModel)]="selectedUser.password"><br>
-  <input type="button" value="Create New User" (click)="createUser(u)"><br>
+<form #f="ngForm">
+  <input type="text" name="name" placeholder="Enter Name" [(ngModel)]="selectedUser.name">
+  <input type="text" name="email" placeholder="Enter Email" [(ngModel)]="selectedUser.email">
+  <input *ngIf="selectedUser.id === null" type="password" name="password" placeholder="Enter Password" [(ngModel)]="selectedUser.password">
+  <input *ngIf="selectedUser.id === null" type="button" value="Create New User" (click)="userCreate(f)">
+  <input *ngIf="selectedUser.id" type="button" value="Update User" (click)="userUpdate(f)">
 </form>
