@@ -1,23 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-form-validation',
   templateUrl: './form-validation.component.html',
   styleUrls: ['./form-validation.component.css'],
 })
-export class FormValidationComponent implements OnInit {
-  // mandoForm = new FormGroup({
-  //   name: new FormControl(),
-  //   series: new FormControl('The Mandalorian'),
-  // });
+export class FormValidationComponent {
+// Single form item
+  // name = new FormControl('', Validators.minLength(5));
+  // age = new FormControl('', Validators.required);
+  // college = new FormControl('', Validators.maxLength(15));
+
   // onFormSubmit(): void {
-  //   console.log('Name:' + this.mandoForm.get('name').value);
-  //   console.log('Series:' + this.mandoForm.get('series').value);
+  //   console.log(this.name.value);
+  //   console.log(this.age.value);
+  //   console.log(this.college.value);
   // }
 
+// Grouping form items
+  // myForm = new FormGroup({
+  //   name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+  //   age: new FormControl('')
+  // });
 
-  constructor() {}
+  myForm: FormGroup;
+  onFormSubmit2(): void {
+    console.log(this.myForm.value);    
+  }
+
+  createForm() {
+    this.myForm = this.fb.group({
+      name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      age: new FormControl('')
+    });
+  }
+
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit(): void {}
 }
