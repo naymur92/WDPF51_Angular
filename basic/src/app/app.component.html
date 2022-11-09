@@ -1,0 +1,13 @@
+<h1>Hello</h1>
+<h2>Main Component</h2>
+<h3>{{ title }}</h3>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let person of persons">
+    <td>{{ person.getName() }}</td>
+    <td>{{ person.age }}</td>
+  </tr>
+</table>
