@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form [formGroup]="profileForm" class="m-2">
   <label for="first-name">First Name: </label>
   <input id="first-name" type="text" formControlName="firstName" /><br />
@@ -51,3 +52,89 @@
 <h2>Result</h2>
 <span><strong>Name: </strong>{{ person.name }}</span><br>
 <span><strong>Address: </strong>{{ person.address }}</span><br> -->
+=======
+<!-- Single form items -->
+<!-- <table>
+  <tr>
+    <th><label>Name:</label></th>
+    <td><input type="text" [formControl]="name"></td>
+    <td><span *ngIf="name.invalid" [ngClass]="'error'">Min length is 5</span></td>
+  </tr>
+  <tr>
+    <th><label>Age:</label></th>
+    <td><input type="text" [formControl]="age"></td>
+    <td><span *ngIf="age.invalid" [ngClass]="'error'">Age is required</span></td>
+  </tr>
+  <tr>
+    <th><label>College:</label></th>
+    <td><input type="text" [formControl]="college"></td>
+    <td><span *ngIf="college.invalid" [ngClass]="'error'">Max length is 15</span></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><input type="button" class="btn btn-outline-success" value="Submit" (click)="onFormSubmit()"></td>
+    <td></td>
+  </tr>
+</table>
+
+
+<h4>Input value</h4>
+<table>
+  <tr>
+    <th>Name:</th>
+    <td>{{name.value}}</td>
+  </tr>
+  <tr>
+    <th>Age:</th>
+    <td>{{age.value}}</td>
+  </tr>
+  <tr>
+    <th>College:</th>
+    <td>{{college.value}}</td>
+  </tr>
+</table> -->
+
+<!-- Grouping form items -->
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit2()">
+  <table>
+    <tr>
+      <th><label>Name:</label></th>
+      <td><input formControlName="name" placeholder="Enter Name" /></td>
+      <td>
+        <div
+          *ngIf="
+            myForm.controls['name'].invalid &&
+            (myForm.controls['name'].dirty || myForm.controls['name'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="myForm.controls['name']">Name is required.</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><label>Age:</label></th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><label>Address:</label></th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <button
+          type="submit"
+          [disabled]="myForm.pristine || myForm.invalid"
+          class="btn btn-success"
+        >
+          Save
+        </button>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</form>
+>>>>>>> a5dbae8778e1a38c33fe2a7d509185c277736f54
