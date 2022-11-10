@@ -1,0 +1,14 @@
+.col-footer-3 a {
+  display: inline-block;
+  color: #999;
+  background: #202020;
+  padding: 2px 8px;
+  margin: 2px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.col-footer-3 a:hover {
+  color: #fff;
+  background: #000;
+}
