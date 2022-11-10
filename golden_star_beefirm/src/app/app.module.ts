@@ -15,6 +15,8 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { EmployeesComponent } from './admin/employees/employees.component';
 import { AdminComponent } from './admin/admin.component';
+import { MainTopbarComponent } from './main-topbar/main-topbar.component';
+import { MainSliderComponent } from './home/main-slider/main-slider.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AdminComponent } from './admin/admin.component';
     AdminNavbarComponent,
     AdminFooterComponent,
     EmployeesComponent,
-    AdminComponent
+    AdminComponent,
+    MainTopbarComponent,
+    MainSliderComponent
   ],
   imports: [
     BrowserModule,
