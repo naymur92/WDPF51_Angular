@@ -126,8 +126,8 @@
 .large-btns_tabs li {
   display: inline;
   float: none;
-  _float: left;
-  *float: left;
+  /* _float: left;
+  *float: left; */
   margin-right: 5px;
   }
 
@@ -142,8 +142,8 @@
   background: #ccc;
   background: rgba(0,0,0, .2);
   display: inline-block;
-  _display: block;
-  *display: block;
+  /* _display: block;
+  *display: block; */
   -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
   -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
   box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
