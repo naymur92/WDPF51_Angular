@@ -1,0 +1,54 @@
+<section id="content" class="zerogrid">
+  <div class="sub-page">
+    <h2>This is test component</h2>
+    <hr><hr>
+
+    <!-- String Interpolation -->
+    <h2>String Interpolation</h2>
+    <p>{{ xyz }}</p>
+    <hr>
+
+    <!-- Property Binding -->
+    <h2>Property Binding</h2>
+    <p [title]="x">This is a paragraph </p>
+    <p [innerHTML]="x">This is a paragraph </p>
+    <button [disabled]="status">Button</button>
+    <hr>
+
+    <!-- Event Binding -->
+    <h2>Event Binding</h2>
+    <button (click)="greeting('Naymur')">Click here for message</button>
+    <hr>
+
+    <!-- Two Way Binding -->
+    <h2>Two-way Binding</h2>
+    <input [(ngModel)]="fname" placeholder="Enter Your Name">
+    <p>{{ fname }}</p>
+    <hr>
+
+    <!-- Angular Directives -->
+    <h2>Angular Directives</h2>
+    <h2>ngIf</h2>
+    <p *ngIf="fruits.length > 0">Array length = {{ fruits.length }}</p>
+
+    <h2>ngFor</h2>
+    <ol *ngFor="let fruit of fruits">
+      <li>{{ fruit }}</li>
+    </ol>
+
+    <h2>ngSwitch</h2>
+    <div [ngSwitch]="fruits.length">
+      <p *ngSwitchCase="2">Two Fruits</p>
+      <p *ngSwitchCase="3">Three Fruits</p>
+      <p *ngSwitchCase="4">Four Fruits</p>
+      <p *ngSwitchDefault>No Fruits</p>
+    </div>
+
+    <h2>ngStyle</h2>
+    <div [ngStyle]="{'font-size': '24px', 'font-weight': 'bold', 'color': 'red'}">This is content</div>
+    <div [ngClass]="p1">This is another Component</div>
+    <hr>
+
+    <p>{{ price | currency: 'BDT'}}</p>
+  </div>
+</section>
