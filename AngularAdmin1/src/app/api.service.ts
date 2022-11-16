@@ -1,18 +1,20 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Users } from './users';
+// import { Users } from './users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  redirectUrl: string='';
-  baseUrl: string = 'http://localhost/AngularAdmin1/php';
+  redirectUrl: string = '';
+  baseUrl: string = 'http://localhost/wdpf51_Angular/AngularAdmin1/php';
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+
   constructor(private httpClient: HttpClient) {}
-  public userlogin(username:any, password:any) {
-    alert(username);
+  
+  public userlogin(username: any, password: any) {
+    // alert(username);
     return this.httpClient
       .post<any>(this.baseUrl + '/login.php', { username, password })
       .pipe(
@@ -24,12 +26,12 @@ export class ApiService {
       );
   }
 
-  public userregistration(name:any, email:any, pwd:any) {
+  public userregistration(name: any, email: any, pwd: any) {
     return this.httpClient
       .post<any>(this.baseUrl + '/register.php', { name, email, pwd })
       .pipe(
-        map((Users) => {
-          return Users;
+        map((data) => {
+          return data;
         })
       );
   }

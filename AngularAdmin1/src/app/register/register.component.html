@@ -1,26 +1,54 @@
 <h2 class="text-center">Registration</h2>
 <div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-6 col-md-offset-3">
-<div class="jumbotron">
-<form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
-<div class="form-group">
-<label for="name">Name</label>
-<input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Name">
-</div>
-<div class="form-group">
-<label for="email">Email</label>
-<input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
-</div>
-<div class="form-group">
-<label for="Password">Password</label>
-<input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
-</div>
-<button type="submit" class="btn btn-success" >Register</button>
-</form>
-</div>
-</div>
-<div class="col-md-3">
-</div>
+  <div class="col-md-3"></div>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <form
+        [formGroup]="angForm"
+        (ngSubmit)="postdata(angForm)"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            formControlName="name"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            formControlName="email"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Password">Password</label>
+          <input
+            type="password"
+            name="Password"
+            formControlName="password"
+            autocomplete="off"
+            class="form-control input-sm"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="angForm.invalid">Register</button>
+      </form>
+      <div class="alert alert-success my-2 text-center" *ngIf="status.success">{{status.success}}</div>
+      <div class="my-2 text-center" *ngIf="status.success">
+        <button class="btn btn-primary" routerLink="login">Login Page</button>
+      </div>
+      <div class="alert alert-danger my-2 text-center" *ngIf="status.failed">{{status.failed}}</div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
 </div>

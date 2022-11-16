@@ -24,7 +24,6 @@
             ],
             "styles": [
               "src/assets/css/bootstrap.min.css",
-              "src/assets/css/font-awesome.min.css",
               "src/assets/css/themify-icons.css",
               "src/assets/css/flaticon-set.css",
               "src/assets/css/magnific-popup.css",
