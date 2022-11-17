@@ -10,13 +10,16 @@ import { MainFooterComponent } from './main-footer/main-footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
-import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
-import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
-import { EmployeesComponent } from './admin/employees/employees.component';
-import { AdminComponent } from './admin/admin.component';
 import { MainTopbarComponent } from './main-topbar/main-topbar.component';
 import { MainSliderComponent } from './home/main-slider/main-slider.component';
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -28,17 +31,18 @@ import { MainSliderComponent } from './home/main-slider/main-slider.component';
     GalleryComponent,
     AboutUsComponent,
     ContactUsComponent,
-    AdminHomeComponent,
-    AdminNavbarComponent,
-    AdminFooterComponent,
-    EmployeesComponent,
-    AdminComponent,
     MainTopbarComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
