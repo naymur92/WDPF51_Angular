@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header bg-info text-light">
-    <h2>Employee <span *ngIf="router.url === '/admin/employees/employee-add'">Add</span> <span *ngIf="router.url === '/admin/employees/employee-add'">Edit</span></h2>
+    <h2>Employee <span *ngIf="router.url === '/admin/employees/employee-add'">Add</span> <span *ngIf="router.url != '/admin/employees/employee-add'">Edit</span></h2>
   </div>
   <div class="card-body">
     <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)">

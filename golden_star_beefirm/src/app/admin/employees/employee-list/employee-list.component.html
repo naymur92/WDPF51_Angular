@@ -17,8 +17,8 @@
         <td>{{ employee.email }}</td>
         <td>{{ employee.employee_type }}</td>
         <td>
-          <button class="btn btn-outline-warning" [routerLink]="['employee-edit', employee.id]">Edit</button>
-          <button class="btn btn-outline-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+          <button *ngIf="employee.employee_type != 'admin'" class="btn btn-outline-warning" [routerLink]="['employee-edit', employee.id]">Edit</button>
+          <button *ngIf="employee.employee_type != 'admin'" class="btn btn-outline-danger" (click)="deleteEmployee(employee.id)">Delete</button>
         </td>
       </tr>
     </table>

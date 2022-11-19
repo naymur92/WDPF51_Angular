@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { ProductAddComponent } from './products/product-add/product-add.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
+import { BookingsComponent } from './bookings/bookings.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProductListComponent } from './products/product-list/product-list.compo
     EmployeeListComponent,
     ProductsComponent,
     ProductAddComponent,
-    ProductListComponent
+    ProductListComponent,
+    BookingsComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule

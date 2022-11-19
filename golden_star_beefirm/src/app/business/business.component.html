@@ -1,1 +1,57 @@
-<p>business works!</p>
+<!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark bg-fixed text-light" style="background-image: url(assets/img/2440x1578.png);">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                  <h1>Business With US</h1>
+                  <ul class="breadcrumb">
+                      <li><a routerLink=""><i class="fas fa-home"></i> Home</a></li>
+                      <li class="active">Products</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End Breadcrumb -->
+  
+<!-- Start Product
+============================================= -->
+<div class="our-product-area text-center default-padding bottom-less">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2">
+				<div class="site-heading text-center">
+					<h4>Our Product</h4>
+					<h2>Fresh & Organic Products</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<!-- Single Product -->
+			<div class="col-lg-3 col-md-6 single-product" *ngFor="let product of products">
+				<div class="item">
+					<div class="thumb">
+						<img src="assets/img/thumb/{{product.thumbnail}}" alt="Thumb">
+						<a routerLink="../booking/{{product.id}}"><i class="fas fa-shopping-cart"></i></a>
+					</div>
+					<div class="info">
+						<div class="product-rating">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+						<h4><a routerLink="../booking/{{product.id}}">{{product.name}}</a></h4>
+						<h5 class="price">BDT. {{product.price}}</h5>
+					</div>
+				</div>
+			</div>
+			<!-- End Single Product -->
+		</div>
+	</div>
+</div>
+<!-- End Product Area -->

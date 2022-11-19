@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -74,7 +74,7 @@ export class EmployeeAddComponent implements OnInit {
         .pipe(first())
         .subscribe(
           (data) => {
-            console.log(data);
+            // console.log(data);
             this.status = data;
           },
           (error) => {}

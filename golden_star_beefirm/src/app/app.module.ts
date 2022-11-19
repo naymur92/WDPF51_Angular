@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AdminModule } from './admin/admin.module';
     ContactUsComponent,
     MainTopbarComponent,
     MainSliderComponent,
-    LoginComponent
+    LoginComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

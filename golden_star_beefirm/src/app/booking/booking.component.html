@@ -1,0 +1,67 @@
+<!-- Start Breadcrumb 
+    ============================================= -->
+<div class="breadcrumb-area text-center shadow dark bg-fixed text-light"
+  style="background-image: url(assets/img/2440x1578.png);">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h1>Booking Page</h1>
+        <ul class="breadcrumb">
+          <li><a routerLink=""><i class="fas fa-home"></i> Home</a></li>
+          <li class="active">Booking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Product
+============================================= -->
+<div class="our-product-area text-center default-padding bottom-less">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="site-heading text-center">
+          <h4>Book Now</h4>
+          <h2>Product Details</h2>
+        </div>
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Price <span *ngIf="selectedProduct.category === 'honey_item'">(per 40 KG.)</span></th>
+            <th>Stock</th>
+          </tr>
+          <tr>
+            <td>{{selectedProduct.name}}</td>
+            <td>{{selectedProduct.price}}</td>
+            <td>{{selectedProduct.stock}}</td>
+          </tr>
+        </table>
+        <div class="thumb"><img src="assets/img/thumb/{{selectedProduct.thumbnail}}" alt=""></div>
+        <h2 class="text-center my-3">Enter Booking Detail</h2><hr class="my-3">
+        <!-- Booking form -->
+        <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)">
+          <div class="form-group">
+            <label for="">Delivery To</label>
+            <input type="text" name="customer_name" formControlName="customer_name" class="form-control" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="">Delivery Address</label>
+            <textarea name="address" formControlName="address" id="" rows="10" class="form-control" placeholder="Enter Address"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="">Select Quantity</label>
+            <input type="number" name="quantity" formControlName="quantity" class="form-control" min="1" max="{{selectedProduct.stock}}">
+          </div>
+          <div class="form-group">
+            <label for="">Total Price</label>
+            <h5>Tk. {{calcTotalPrice(selectedProduct.price, angForm.value.quantity)}}</h5>
+          </div>
+          <input type="submit" value="Finish Booking" class="btn btn-success" (click)="sentData(selectedProduct.name, selectedProduct.price, selectedProduct.stock)">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Product Area -->

@@ -1,3 +1,26 @@
 <div class="container">
-  <h2>Welcome to admin dashboard</h2>
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron bg-primary">
+        <h1 class="display-4 text-center text-light">Dashboard</h1>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header bg-info text-light">
+          <h3>Left Bar</h3>
+        </div>
+        <div class="card-body">
+          <ul class="menu">
+            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/employees']);">Employees</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/products']);">Products</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/bookings']);">Bookings</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <!-- Content Area -->
+    </div>
+  </div>
 </div>
