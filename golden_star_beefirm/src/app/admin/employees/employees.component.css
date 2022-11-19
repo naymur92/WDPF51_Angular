@@ -1,0 +1,17 @@
+.menu{
+  list-style-type: none;
+}
+.menu li {
+  border-bottom: 1px dotted black;
+}
+.menu li:last-child{
+  border-bottom: none;
+}
+
+.left-menu :hover{
+  background-color: lightgreen;
+  color: green;
+}
+.card-body{
+  min-height: 450px;
+}

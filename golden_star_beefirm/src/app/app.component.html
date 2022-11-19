@@ -1,7 +1,6 @@
-<app-main-topbar *ngIf="router.url != '/admin'"></app-main-topbar>
-
-<app-main-navbar *ngIf="router.url != '/admin'"></app-main-navbar>
+<app-main-topbar *ngIf="adminRouting()"></app-main-topbar>
+<app-main-navbar *ngIf="adminRouting()"></app-main-navbar>
 
 <router-outlet></router-outlet>
 
-<app-main-footer *ngIf="router.url != '/admin'"></app-main-footer>
+<app-main-footer *ngIf="adminRouting()"></app-main-footer>

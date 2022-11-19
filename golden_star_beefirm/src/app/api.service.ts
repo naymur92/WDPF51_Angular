@@ -1,7 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-// import { Users } from './users';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,16 +22,6 @@ export class ApiService {
           this.setToken(Users[0].name);
           this.getLoggedInName.emit(true);
           return Users;
-        })
-      );
-  }
-
-  public userregistration(name: any, email: any, pwd: any) {
-    return this.httpClient
-      .post<any>(this.baseUrl + '/register.php', { name, email, pwd })
-      .pipe(
-        map((data) => {
-          return data;
         })
       );
   }

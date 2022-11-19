@@ -12,6 +12,7 @@ import { ApiService } from '../api.service';
 export class LoginComponent implements OnInit {
   login: boolean | null = null;
   angForm: FormGroup;
+  
   constructor(
     private fb: FormBuilder,
     private dataService: ApiService,
@@ -38,14 +39,11 @@ export class LoginComponent implements OnInit {
             : '/admin';
           this.router.navigate([redirect]);
           this.login = true;
-          // console.log(data);
         },
         (error) => {
           this.login = false;
-          // alert('User name or password is incorrect');
         }
       );
-      // console.log(angForm1.value);
   }
   get email() {
     return this.angForm.get('email');

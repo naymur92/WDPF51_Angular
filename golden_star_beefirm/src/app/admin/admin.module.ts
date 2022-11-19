@@ -6,13 +6,11 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 
-import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
-
-const admin: Routes = [
-  {path: '', component: AdminHomeComponent},
-  {path: 'employees', component: EmployeesComponent},
-  {path: '**', redirectTo: ''}
-]
+import { AdminRoutingModule } from './admin-routing.module';
+import { EmployeeAddComponent } from './employees/employee-add/employee-add.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,12 +19,12 @@ const admin: Routes = [
     AdminFooterComponent,
     AdminHomeComponent,
     EmployeesComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
+    EmployeeAddComponent,
+    EmployeeListComponent
   ],
   imports: [
-    CommonModule, RouterModule.forRoot(admin)
+    CommonModule, AdminRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule
   ]
 })
-export class AdminModule {
-  constructor(private route: ActivatedRoute) {}
-}
+export class AdminModule {}

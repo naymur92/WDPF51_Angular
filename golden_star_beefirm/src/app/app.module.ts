@@ -14,12 +14,11 @@ import { MainTopbarComponent } from './main-topbar/main-topbar.component';
 import { MainSliderComponent } from './home/main-slider/main-slider.component';
 
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { AdminModule } from './admin/admin.module';
     ContactUsComponent,
     MainTopbarComponent,
     MainSliderComponent,
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

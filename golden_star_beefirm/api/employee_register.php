@@ -4,15 +4,16 @@ $postdata = file_get_contents("php://input");
 if (isset($postdata) && !empty($postdata)) {
   $request = json_decode($postdata);
   $name = trim($request->name);
-  $pwd = mysqli_real_escape_string($mysqli, trim($request->pwd));
   $email = mysqli_real_escape_string($mysqli, trim($request->email));
+  $pwd = mysqli_real_escape_string($mysqli, trim($request->pwd));
+  $emp_type = mysqli_real_escape_string($mysqli, trim($request->emp_type));
 
   $sql = "SELECT email from users WHERE email='$email'";
   $result = $mysqli->query($sql);
   if($result->num_rows > 0){
-    echo json_encode(['failed' => 'Try with different email']);
+    echo json_encode(['dupemail' => 'Try with different email']);
   } else{
-    $sql = "INSERT INTO users(name,password,email) VALUES ('$name','$pwd','$email')";
+    $sql = "INSERT INTO users VALUES (NULL, '$name','$email','$pwd','$emp_type')";
     if ($mysqli->query($sql) === TRUE) {
       // $authdata = [
       //   'name' => $name,
@@ -22,6 +23,8 @@ if (isset($postdata) && !empty($postdata)) {
       // ];
       // echo json_encode($authdata);
       echo json_encode(['success' => 'Successfully Registered']);
+    } else {
+      echo json_encode(['failed' => 'Try Again']);
     }
   }
 

@@ -1,1 +1,28 @@
-<p>employees works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron bg-primary">
+        <h1 class="display-4 text-center text-light">Employees</h1>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header bg-info text-light">
+          <h3>Left Bar</h3>
+        </div>
+        <div class="card-body">
+          <ul class="menu">
+            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/employees']);">All Employees</button></li>
+            <li><button class="left-menu btn btn-outline-info">All Managers</button></li>
+            <li><button class="left-menu btn btn-outline-info">All Workers</button></li>
+          </ul>
+          <button class="left-menu btn btn-outline-success mt-3" (click)="router.navigate(['/admin/employees/employee-add']);">Add New Employee</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <app-employee-list *ngIf="router.url === '/admin/employees'"></app-employee-list>
+      <app-employee-add *ngIf="(router.url === '/admin/employees/employee-add') || editEmp()"></app-employee-add>
+    </div>
+  </div>
+</div>
