@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../../employee.model';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -8,27 +9,24 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-list.component.css'],
 })
 export class EmployeeListComponent implements OnInit {
-  // selectedEmployee: Employee = {};
   employees: Employee[] = [];
 
-  constructor(private employeeService: EmployeeService) {
+  getEmployees() {
     this.employeeService.readEmployees().subscribe((employees: Employee[]) => {
       this.employees = employees;
     });
   }
 
+  constructor(private employeeService: EmployeeService, public router: Router) {
+    this.getEmployees();
+  }
+
+  deleteEmployee(id: any) {
+    this.employeeService.employeeDelete(id).subscribe((data: any) => {
+      alert(data.success);
+      this.getEmployees();
+    });
+  }
+
   ngOnInit(): void {}
-
-  // editEmployee(id: any) {
-  //   this.employees.forEach((element) => {
-  //     if (element.id === id) {
-  //       this.selectedEmployee = element;
-  //     }
-  //   });
-  //   // console.log(this.selectedEmployee);
-  // }
-}
-
-export class EditEmployee {
-  
 }

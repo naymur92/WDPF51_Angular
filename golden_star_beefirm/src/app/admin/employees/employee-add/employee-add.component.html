@@ -6,16 +6,16 @@
     <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)">
       <div class="form-group">
         <label for="">Name</label>
-        <input type="text" name="name" formControlName="name" placeholder="Enter Name" class="form-control">
+        <input type="text" name="name" formControlName="name" placeholder="Enter Name" class="form-control" value="{{selectedEmployee.name}}">
       </div>
       <div class="form-group">
         <label for="">Email</label>
-        <input type="text" name="email" formControlName="email" placeholder="Enter Email" class="form-control">
+        <input type="text" name="email" formControlName="email" placeholder="Enter Email" class="form-control" value="{{selectedEmployee.email}}">
       </div>
       <div class="form-group">
         <label for="">Employee Type</label>
         <input list="emp_type" name="employee_type" formControlName="employee_type" class="form-control"
-          placeholder="manager | worker">
+          placeholder="manager | worker" value="{{selectedEmployee.employee_type}}">
         <datalist id="emp_type">
           <option value="manager">
           <option value="worker">
@@ -24,10 +24,10 @@
       <div class="form-group">
         <label for="">Password</label>
         <input type="password" name="password" formControlName="password" placeholder="Enter Password"
-          class="form-control">
+          class="form-control" value="{{selectedEmployee.password}}">
       </div>
       <input type="submit" name="employee-add" value="Submit Data" class="btn btn-outline-success"
-        [disabled]="angForm.invalid || angForm.pristine">
+        [disabled]="angForm.invalid">
     </form>
     <div class="alert alert-success my-3" *ngIf="status.success">{{ status.success }}</div>
     <div class="alert alert-warning my-3" *ngIf="status.dupemail">{{ status.dupemail }}</div>

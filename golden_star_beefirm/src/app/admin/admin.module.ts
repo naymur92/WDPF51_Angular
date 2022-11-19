@@ -11,6 +11,9 @@ import { EmployeeAddComponent } from './employees/employee-add/employee-add.comp
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+import { ProductAddComponent } from './products/product-add/product-add.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeesComponent,
     AdminNavbarComponent,
     EmployeeAddComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    ProductsComponent,
+    ProductAddComponent,
+    ProductListComponent
   ],
   imports: [
     CommonModule, AdminRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule

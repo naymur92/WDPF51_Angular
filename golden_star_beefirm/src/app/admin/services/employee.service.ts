@@ -42,4 +42,36 @@ export class EmployeeService {
         })
       );
   }
+
+  public employeeUpdate(
+    id: any,
+    name: any,
+    email: any,
+    emp_type: any,
+    pwd: any
+  ) {
+    return this.httpClient
+      .put<any>(this.PHP_API_SERVER + '/employeeEdit.php', {
+        id,
+        name,
+        email,
+        emp_type,
+        pwd,
+      })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  public employeeDelete(id: any) {
+    return this.httpClient
+      .put<any>(this.PHP_API_SERVER + '/employeeDelete.php', {id})
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
 }

@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 07:53 AM
+-- Host: localhost
+-- Generation Time: Nov 19, 2022 at 01:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `beefirm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `p_id` smallint(4) NOT NULL,
+  `p_name` varchar(20) NOT NULL,
+  `p_price` mediumint(6) NOT NULL,
+  `p_category` varchar(20) NOT NULL,
+  `p_stock` mediumint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,16 +58,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 (2, 'Kamrul Hasan', 'kamrul@example.com', 'abcd1234', 'manager'),
 (3, 'Alauddin Alo', 'alauddin@example.com', 'abcd1234', 'manager'),
 (4, 'Fahim Ahmed', 'fahim@example.com', 'abcd1234', 'worker'),
-(5, 'Durjoy', 'durjoy@example.com', 'abcd1234', 'manager'),
 (6, 'Shibli Ahmed', 'shibli@example.com', 'abcd1234', 'worker'),
-(7, 'Faruk Ahmed', 'mdfarukahmed605@gmai', '', ''),
-(17, 'Faruk Ahmed', 'mdfarukahmed605@gmail.com', 'abcd1234', ''),
-(18, 'asdf', 'naymadfur@example.com', 'asdfasfd', ''),
-(19, 'Habib Hossain', 'habib@example.com', 'abcd1234', 'worker');
+(7, 'Faruk Ahmed', 'faruk@gmail.com', 'abcd1234', 'worker');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`p_id`);
 
 --
 -- Indexes for table `users`
@@ -67,10 +83,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `p_id` smallint(4) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
