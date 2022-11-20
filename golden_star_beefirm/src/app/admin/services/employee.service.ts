@@ -8,7 +8,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class EmployeeService {
-  PHP_API_SERVER = 'http://localhost/wdpf51_Angular/golden_star_beefirm/api';
+  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api';
 
   constructor(private httpClient: HttpClient) {}
 

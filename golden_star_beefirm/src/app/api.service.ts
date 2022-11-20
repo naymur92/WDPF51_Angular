@@ -9,7 +9,7 @@ import { Product } from './admin/product.model';
 })
 export class ApiService {
   redirectUrl: string = '';
-  baseUrl: string = 'http://localhost/wdpf51_Angular/golden_star_beefirm/api';
+  baseUrl: string = 'https://goldenstar.bdprogrammers.com/api';
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   constructor(private httpClient: HttpClient) {}
@@ -28,7 +28,7 @@ export class ApiService {
   } // Login End
 
   PHP_API_SERVER =
-    'http://localhost/wdpf51_Angular/golden_star_beefirm/api/products';
+    'https://goldenstar.bdprogrammers.com/api/products';
 
   readProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
@@ -45,7 +45,7 @@ export class ApiService {
       );
   } // End Read Product
 
-  BOOKING_API_SERVER = 'http://localhost/wdpf51_Angular/golden_star_beefirm/api/bookings';
+  BOOKING_API_SERVER = 'https://goldenstar.bdprogrammers.com/api/bookings';
   // Booking
   public addBooking(
     product_id: any,

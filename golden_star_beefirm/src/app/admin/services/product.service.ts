@@ -9,7 +9,7 @@ import { Product } from '../product.model';
 })
 export class ProductService {
   PHP_API_SERVER =
-    'http://localhost/wdpf51_Angular/golden_star_beefirm/api/products';
+    'https://goldenstar.bdprogrammers.com/api/products';
 
   constructor(private httpClient: HttpClient) {}
 

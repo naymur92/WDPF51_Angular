@@ -6,17 +6,23 @@ import { Product } from '../product.model';
 import { Booking } from '../booking.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingService {
-  PHP_API_SERVER =
-  'http://localhost/wdpf51_Angular/golden_star_beefirm/api/bookings';
+  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api/bookings';
 
-constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-readBookings(): Observable<Booking[]> {
-  return this.httpClient.get<Booking[]>(
-    `${this.PHP_API_SERVER}/bookings.php`
-  );
-}
+  readBookings(): Observable<Booking[]> {
+    return this.httpClient.get<Booking[]>(
+      `${this.PHP_API_SERVER}/bookings.php`
+    );
+  }
+
+  changeBookingStatus(id: any, status: any) {
+    return this.httpClient.put<any>(
+      `${this.PHP_API_SERVER}/change_booking_status.php`,
+      {id, status}
+    );
+  }
 }
