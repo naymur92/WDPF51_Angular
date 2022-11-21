@@ -7,33 +7,35 @@ import { BookingService } from '../services/booking.service';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
-  styleUrls: ['./bookings.component.css']
+  styleUrls: ['./bookings.component.css'],
 })
 export class BookingsComponent implements OnInit {
-
   bookings: Booking[] = [];
 
-  getBookings() {
-    this.bookingService.readBookings().subscribe((employees: Booking[]) => {
-      this.bookings = employees;
-    });
-  }
   constructor(public router: Router, public bookingService: BookingService) {
     this.getBookings();
   }
 
+  getBookings() {
+    this.bookingService.readBookings().subscribe((bookings: Booking[]) => {
+      this.bookings = bookings;
+    });
+  }
+
   changeBookingStatus(id: any, status: any) {
-    this.bookingService.changeBookingStatus(id, status).pipe(first())
-    .subscribe(
-      (data) => {
-        // console.log(data);
-        alert(data.success);
-      },
-      (error) => {}
-    );
+    this.bookingService
+      .changeBookingStatus(id, status)
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          // Call method to refresh data
+          this.getBookings();
+
+          alert(data.success);
+        },
+        (error) => {}
+      );
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -12,7 +12,8 @@
         </div>
         <div class="card-body">
           <ul class="menu">
-            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/bookings']);">All Bookings</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/bookings']);">All
+                Bookings</button></li>
             <li><button class="left-menu btn btn-outline-info">All Pending Bookings</button></li>
             <li><button class="left-menu btn btn-outline-info">All Confirmed Bookings</button></li>
             <li><button class="left-menu btn btn-outline-info">All Delivered Bookings</button></li>
@@ -44,8 +45,13 @@
               <td>{{ booking.total_price }}</td>
               <td>{{ booking.booking_status }}</td>
               <td>
-                <button class="btn btn-outline-warning" [routerLink]="['booking-confirm', booking.id]">Confirm</button>
-                <button class="btn btn-outline-danger" (click)="(booking.id)">Delete</button>
+                <button class="btn btn-outline-success" *ngIf="booking.booking_status==='Pending'"
+                  (click)="changeBookingStatus(booking.id, 'Confirmed')">Confirm</button>
+                <button class="btn btn-outline-success" *ngIf="booking.booking_status==='Confirmed'"
+                  (click)="changeBookingStatus(booking.id, 'Delivered')">Deliver</button>
+                <button class="btn btn-outline-danger" (click)="(booking.id)"
+                  *ngIf="booking.booking_status!='Delivered'">Delete</button>
+
               </td>
             </tr>
           </table>
