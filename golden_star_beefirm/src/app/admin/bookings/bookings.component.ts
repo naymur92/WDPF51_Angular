@@ -37,5 +37,12 @@ export class BookingsComponent implements OnInit {
       );
   }
 
+  deleteBooking(id: any) {
+    this.bookingService.deleteBooking(id).subscribe((data: any) => {
+      this.getBookings();
+      // alert(data.success);
+    });
+  }
+
   ngOnInit(): void {}
 }

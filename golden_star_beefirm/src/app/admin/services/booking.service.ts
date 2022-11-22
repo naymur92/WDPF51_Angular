@@ -22,7 +22,17 @@ export class BookingService {
   changeBookingStatus(id: any, status: any) {
     return this.httpClient.put<any>(
       `${this.PHP_API_SERVER}/change_booking_status.php`,
-      {id, status}
+      { id, status }
     );
+  }
+
+  deleteBooking(id: any) {
+    return this.httpClient
+      .delete<Product>(`${this.PHP_API_SERVER}/delete_booking.php/?id=${id}`)
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
   }
 }

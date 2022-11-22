@@ -49,7 +49,7 @@
                   (click)="changeBookingStatus(booking.id, 'Confirmed')">Confirm</button>
                 <button class="btn btn-outline-success" *ngIf="booking.booking_status==='Confirmed'"
                   (click)="changeBookingStatus(booking.id, 'Delivered')">Deliver</button>
-                <button class="btn btn-outline-danger" (click)="(booking.id)"
+                <button class="btn btn-outline-danger" (click)="deleteBooking(booking.id)"
                   *ngIf="booking.booking_status!='Delivered'">Delete</button>
 
               </td>
