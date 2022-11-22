@@ -13,9 +13,9 @@ export class BookingService {
 
   constructor(private httpClient: HttpClient) {}
 
-  readBookings(): Observable<Booking[]> {
+  readBookings(status?: string): Observable<Booking[]> {
     return this.httpClient.get<Booking[]>(
-      `${this.PHP_API_SERVER}/bookings.php`
+      `${this.PHP_API_SERVER}/bookings.php/?status=${status}`
     );
   }
 

@@ -27,12 +27,11 @@ export class ApiService {
       );
   } // Login End
 
-  PHP_API_SERVER =
-    'https://goldenstar.bdprogrammers.com/api/products';
+  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api/products';
 
-  readProducts(): Observable<Product[]> {
+  readProducts(category?: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
-      `${this.PHP_API_SERVER}/products.php`
+      `${this.PHP_API_SERVER}/products.php/?cat=${category}`
     );
   }
   readProduct(id: any): Observable<Product> {
@@ -66,7 +65,7 @@ export class ApiService {
         product_price,
         product_quantity,
         total_price,
-        new_stock
+        new_stock,
       })
       .pipe(
         map((data) => {

@@ -12,11 +12,14 @@
         </div>
         <div class="card-body">
           <ul class="menu">
-            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/bookings']);">All
+            <li><button class="left-menu btn btn-outline-info" (click)="getBookings()">All
                 Bookings</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Pending Bookings</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Confirmed Bookings</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Delivered Bookings</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="getBookings('Pending')">All Pending
+                Bookings</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="getBookings('Confirmed')">All Confirmed
+                Bookings</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="getBookings('Delivered')">All Delivered
+                Bookings</button></li>
           </ul>
         </div>
       </div>

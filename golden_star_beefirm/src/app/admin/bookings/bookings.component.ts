@@ -16,10 +16,12 @@ export class BookingsComponent implements OnInit {
     this.getBookings();
   }
 
-  getBookings() {
-    this.bookingService.readBookings().subscribe((bookings: Booking[]) => {
-      this.bookings = bookings;
-    });
+  getBookings(status?: any) {
+    this.bookingService
+      .readBookings(status)
+      .subscribe((bookings: Booking[]) => {
+        this.bookings = bookings;
+      });
   }
 
   changeBookingStatus(id: any, status: any) {

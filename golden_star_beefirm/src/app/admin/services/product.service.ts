@@ -8,14 +8,13 @@ import { Product } from '../product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  PHP_API_SERVER =
-    'https://goldenstar.bdprogrammers.com/api/products';
+  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api/products';
 
   constructor(private httpClient: HttpClient) {}
 
-  readProducts(): Observable<Product[]> {
+  readProducts(category?: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
-      `${this.PHP_API_SERVER}/products.php`
+      `${this.PHP_API_SERVER}/products.php/?cat=${category}`
     );
   }
 
@@ -50,8 +49,6 @@ export class ProductService {
         })
       );
   } // End Add Product
-
-
 
   public editProduct(
     id: number,

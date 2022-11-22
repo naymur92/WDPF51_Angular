@@ -11,12 +11,19 @@
           <h3>Left Bar</h3>
         </div>
         <div class="card-body">
-          <ul class="menu">
-            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/products']);">All Products</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Honey Items</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Firm Items</button></li>
+          <ul class="menu" *ngIf="router.url === '/admin/products'">
+            <li><button class="left-menu btn btn-outline-info" (click)="prodListComp.getProducts()">All
+                Products</button>
+            </li>
+            <li><button class="left-menu btn btn-outline-info" (click)="prodListComp.getProducts('honey_item')">All
+                Honey Items</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="prodListComp.getProducts('firm_item')">All Firm
+                Items</button></li>
           </ul>
-          <button class="left-menu btn btn-outline-success mt-3" (click)="router.navigate(['/admin/products/product-add']);">Add New Product</button>
+          <button class="left-menu btn btn-outline-success mt-3"
+            (click)="router.navigate(['/admin/products/product-add']);">Add New Product</button>
+          <button *ngIf="(router.url === '/admin/products/product-add' || editProd())"
+            class="left-menu btn btn-danger mt-3" (click)="router.navigate(['/admin/products']);">Cancel</button>
         </div>
       </div>
     </div>

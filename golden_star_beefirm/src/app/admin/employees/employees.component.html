@@ -11,12 +11,18 @@
           <h3>Left Bar</h3>
         </div>
         <div class="card-body">
-          <ul class="menu">
-            <li><button class="left-menu btn btn-outline-info" (click)="router.navigate(['/admin/employees']);">All Employees</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Managers</button></li>
-            <li><button class="left-menu btn btn-outline-info">All Workers</button></li>
+          <ul class="menu" *ngIf="router.url === '/admin/employees'">
+            <li><button class="left-menu btn btn-outline-info" (click)="empListComp.getEmployees()">All
+                Employees</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="empListComp.getEmployees('manager')">All
+                Managers</button></li>
+            <li><button class="left-menu btn btn-outline-info" (click)="empListComp.getEmployees('worker')">All
+                Workers</button></li>
           </ul>
-          <button class="left-menu btn btn-outline-success mt-3" (click)="router.navigate(['/admin/employees/employee-add']);">Add New Employee</button>
+          <button class="left-menu btn btn-outline-success mt-3"
+            (click)="router.navigate(['/admin/employees/employee-add']);">Add New Employee</button>
+          <button *ngIf="(router.url === '/admin/employees/employee-add' || editEmp())"
+            class="left-menu btn btn-danger mt-3" (click)="router.navigate(['/admin/employees']);">Cancel</button>
         </div>
       </div>
     </div>

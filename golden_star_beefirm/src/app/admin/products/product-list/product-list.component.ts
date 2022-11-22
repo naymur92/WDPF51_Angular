@@ -9,16 +9,17 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
-
-  getProducts() {
-    this.productService.readProducts().subscribe((products: Product[]) => {
-      this.products = products;
-    });
-  }
-
   constructor(private productService: ProductService, public router: Router) {
     this.getProducts();
+  }
+  products: Product[] = [];
+
+  getProducts(category?: any) {
+    this.productService
+      .readProducts(category)
+      .subscribe((products: Product[]) => {
+        this.products = products;
+      });
   }
 
   deleteProduct(id: any) {

@@ -9,16 +9,16 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-list.component.css'],
 })
 export class EmployeeListComponent implements OnInit {
-  employees: Employee[] = [];
-
-  getEmployees() {
-    this.employeeService.readEmployees().subscribe((employees: Employee[]) => {
-      this.employees = employees;
-    });
-  }
-
   constructor(private employeeService: EmployeeService, public router: Router) {
     this.getEmployees();
+  }
+  employees: Employee[] = [];
+  getEmployees(type?: any) {
+    this.employeeService
+      .readEmployees(type)
+      .subscribe((employees: Employee[]) => {
+        this.employees = employees;
+      });
   }
 
   deleteEmployee(id: any) {

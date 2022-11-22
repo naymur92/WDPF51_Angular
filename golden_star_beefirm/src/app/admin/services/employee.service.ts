@@ -8,13 +8,13 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class EmployeeService {
-  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api';
+  PHP_API_SERVER = 'https://goldenstar.bdprogrammers.com/api/employees';
 
   constructor(private httpClient: HttpClient) {}
 
-  readEmployees(): Observable<Employee[]> {
+  readEmployees(type?: any): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(
-      `${this.PHP_API_SERVER}/employees.php`
+      `${this.PHP_API_SERVER}/employees.php/?type=${type}`
     );
   }
 
@@ -67,7 +67,7 @@ export class EmployeeService {
 
   public employeeDelete(id: any) {
     return this.httpClient
-      .put<any>(this.PHP_API_SERVER + '/employeeDelete.php', {id})
+      .put<any>(this.PHP_API_SERVER + '/employeeDelete.php', { id })
       .pipe(
         map((data) => {
           return data;
