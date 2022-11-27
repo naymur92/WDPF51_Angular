@@ -8,8 +8,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { ProductsComponent } from './products/products.component';
 
 const childRoute: Routes = [
-  { path: '', component: AdminHomeComponent },
-  { path: 'dashboard', redirectTo: '' },
+  { path: 'dashboard', component: AdminHomeComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employees/employee-add', component: EmployeesComponent },
   { path: 'employees/employee-edit/:id', component: EmployeesComponent },

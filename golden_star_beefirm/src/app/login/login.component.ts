@@ -12,7 +12,7 @@ import { ApiService } from '../api.service';
 export class LoginComponent implements OnInit {
   login: boolean | null = null;
   angForm: FormGroup;
-  
+
   constructor(
     private fb: FormBuilder,
     private dataService: ApiService,
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         (data) => {
           const redirect = this.dataService.redirectUrl
             ? this.dataService.redirectUrl
-            : '/admin';
+            : '/admin/dashboard';
           this.router.navigate([redirect]);
           this.login = true;
         },
